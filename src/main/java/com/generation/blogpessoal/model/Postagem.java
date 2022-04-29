@@ -13,20 +13,20 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
-@Entity
-@Table(name = "tb_postagens")
+@Entity    // create table
+@Table(name = "tb_postagens")      // nomeando a tabela
 public class Postagem {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id   // primary key 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)     // auto increment
 	private Long id;
 	
-	@NotBlank(message = "O atributo título é oobrigatório e não pode utilizar espaços em branco!")
-	@Size(min = 5, max = 100, message = "O atributo deve conter no mínimo 5 caracteres e no máximo 100 caracteres.")
+	@NotBlank(message = "O atributo título é oobrigatório e não pode utilizar espaços em branco!")  
+	@Size(min = 5, max = 100, message = "O atributo deve conter no mínimo 5 caracteres e no máximo 100 caracteres.")  // tamanho do titulo
 	private String titulo;
 	
-	@NotNull(message = "O atributo texto é obrigatório!")
-	@Size(min = 10, max = 1000, message = "O atributo deve conter no mínimo 10 caracteres e no máximo 1000 caracteres.")
+	@NotNull(message = "O atributo texto é obrigatório!")    // não nulo
+	@Size(min = 10, max = 1000, message = "O atributo deve conter no mínimo 10 caracteres e no máximo 1000 caracteres.")    // tamanho do texto
 	private String texto;
 	
 	@UpdateTimestamp
